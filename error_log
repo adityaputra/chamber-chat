@@ -1,0 +1,1 @@
+[15-Jul-2013 23:17:15 America/New_York] PHP Fatal error:  Call to undefined function base_url() in /home/adityapu/public_html/chat/application/views/chat.php on line 5
