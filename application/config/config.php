@@ -14,7 +14,10 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/chamber-chat/';
+$http = 'http' . ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? 's' : '') . '://';
+$newurl = str_replace("index.php","", $_SERVER['SCRIPT_NAME']);
+$config['base_url']    = "$http" . $_SERVER['SERVER_NAME'] . "" . $newurl;
+//$config['base_url']	= 'http://localhost/chamber-chat/';
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +30,7 @@ $config['base_url']	= 'http://localhost/chamber-chat/';
 |
 */
 $config['index_page'] = 'index.php';
+//$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -224,7 +228,7 @@ $config['cache_path'] = '';
 | MUST set an encryption key.  See the user guide for info.
 |
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = 'adityaputra';
 
 /*
 |--------------------------------------------------------------------------

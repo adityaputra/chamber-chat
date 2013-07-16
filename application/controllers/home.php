@@ -17,9 +17,34 @@ class Home extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
+	function __construct(){
+		parent::__construct();
+		//session_start();
+	}
 	public function index()
 	{
-		$this->load->view('home');
+		//echo "sip";exit;
+		//print_r($_SESSION);exit;
+		//session_unset();
+		//session_destroy();
+		//echo"cek session:"; echo $this->session_check();exit;
+		if($this->session_check()==0){
+			$this->load->helper('url');
+			redirect('login');
+		}
+		else if ($this->session_check()==1){
+			$this->load->view('home');
+		}
+	}
+	
+	public function session_check(){
+		$user = $this->session->userdata('username');
+		//echo "jos"; print_r($user);
+		if(empty($user)){
+			
+			return 0;
+		}
+		else return 1;
 	}
 }
 
